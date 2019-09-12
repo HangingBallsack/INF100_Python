@@ -40,6 +40,9 @@ def func2():
         print(S)
     elif bokstav.upper() == "C":
         print(C)
+    else:
+        print("--------ugyldig innput--------")
+        return
 
 # Oppg 2b
     kortStokk = {
@@ -73,10 +76,8 @@ def func3():
         "AUD": 6.06501,
         "NOK": 1.00000
     }
-    kursFra = input(
-        "Fra hvilke valuta vil du konvertere? EUR, USD, GBP, SEK, AUD \n")
-    kursFraAntall = float(
-        input("Hvor mange " + kursFra.upper() + " vil du konvertere til NOK?\n"))
+    kursFra = input("Fra hvilke valuta vil du konvertere? EUR, USD, GBP, SEK, AUD \n")
+    kursFraAntall = float(input("Hvor mange " + kursFra.upper() + " vil du konvertere til NOK?\n"))
 
     konvertert = kursFraAntall * ValutaKurser[kursFra.upper()]
     print(kursFraAntall, kursFra, " er %.2f i NOK." % konvertert)
@@ -102,8 +103,8 @@ def func5():
     stopp = int(input("Stopp (til og med): "))
     n = int(input("n: "))
 
-    print("Tall mellom ", start, " og ", stopp, "som er delelig på", n, ":")
-    for i in range(stopp+1):
+    print("Tall mellom", start, "og", stopp, "som er delelig på", n, ": ")
+    for i in range(start, stopp+1):
         if (i % n == 0):
             print(i)
 
@@ -119,9 +120,7 @@ def func6():
         else:
             print(i*10, "\t\t", tilFahrenheit(i*10), "\t\t Jeg svetter ihjel!")
 
-# tøysete metode som står i oppgaven skal være med :P :P
-
-
+# tøysete metode som står i oppgaven skal være med :PpPp
 def tilFahrenheit(celcius):
     return celcius*1.8+32
 
@@ -134,7 +133,7 @@ def func7():
     til = int(input("Til: "))
     print(renteOkning(verdi, fra, til))
 
-
+# tøysete metode som står i oppgaven skal være med :PpPp
 def renteOkning(verdi, fra, til):
     for i in range(til-fra):
         verdi *= 1.02
