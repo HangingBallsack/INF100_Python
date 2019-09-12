@@ -127,11 +127,21 @@ def tilFahrenheit(celcius):
     return celcius*1.8+32
 
 
-"""
+
 # oppg 7
 def func7():
+    print("\n-------------Oppgave 7-------------")
+    verdi = float(input("original pris: "))
+    fra = int(input("Fra: "))
+    til = int(input("Til: "))
+    print(renteOkning(verdi, fra, til))
 
-"""
+
+def renteOkning(verdi, fra, til):
+    for i in range(til-fra):
+        verdi *= 1.02
+    return verdi
+
 
 
 # velg hvilke oppgave som skal vises i terminalen
@@ -149,8 +159,8 @@ while True:
         func5()
     elif valg == "6":
         func6()
-#    elif valg == "7":
-#        func7()
+    elif valg == "7":
+        func7()
     elif valg == "0":
         break
     elif valg.upper() == "ALLE":
@@ -160,6 +170,8 @@ while True:
         func4()
         func5()
         func6()
-#        func7()
+        func7()
     else:
         print("Ugylidg, prøv igjen.")
+        
+        
