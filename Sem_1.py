@@ -149,8 +149,8 @@ while True:
         func5()
     elif valg == "6":
         func6()
-    elif valg == "7":
-        func7()
+#    elif valg == "7":
+#        func7()
     elif valg == "0":
         break
     elif valg.upper() == "ALLE":
@@ -160,6 +160,6 @@ while True:
         func4()
         func5()
         func6()
-        func7()
+#        func7()
     else:
         print("Ugylidg, prøv igjen.")
