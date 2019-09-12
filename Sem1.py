@@ -82,7 +82,7 @@ def func3():
     konvertert = kursFraAntall * ValutaKurser[kursFra.upper()]
     print(kursFraAntall, kursFra, " er %.2f i NOK." % konvertert)
 
-    konvFraNorsk = float(input("Norske kroner som skal konverteres: "))
+    konvFraNorsk = float(input("\nNorske kroner som skal konverteres: "))
     konvFraNorskTil = input("Til hvilke kurs?  EUR, USD, GBP, SEK, AUD\n")
     print(konvFraNorsk, "Norske er %.2f" % (konvFraNorsk / ValutaKurser[konvFraNorskTil.upper()]), konvFraNorskTil.upper())
 
