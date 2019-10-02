@@ -1,5 +1,4 @@
-#import matplotlib.pyplot as plt
-import random
+import matplotlib.pyplot as plt, random, copy
 
 def oppgave1():
     store_tall = [
@@ -67,25 +66,48 @@ microsoft_inntekt_dollar = [
         [2019, 125.84]
     ]
 
+
 def oppgave3a():
     USD = 8.6862
-pass
+    microsoft_inntekt_kroner = copy.deepcopy(microsoft_inntekt_dollar)
 
-def oppgave3b():    """ Tegner et histogram over inntektene til Microsoft    """    
-pass
+    for row in microsoft_inntekt_kroner:
+        row[1] = row[1]*USD
+        for column in row:
+            print(column, end=' \t')
+        print()
 
-def oppgave3c():    """ Summerer opp inntektene til Microsoft    """    
-pass
+    print("\nOld: ")
+    for row in microsoft_inntekt_dollar:
+        for column in row:
+            print(column, end=' \t')
+        print()
+
+
+def oppgave3b():
+    år = []
+    inntekt = []
+    for row in microsoft_inntekt_dollar:
+        år.append(row[0])
+        inntekt.append(row[1])
+
+    plt.bar(år,inntekt)
+    plt.ylabel("Earnings in Billion USD")
+    plt.xlabel("Year")
+    plt.show()
+
+
+def oppgave3c():
+    inntekt = 0
+    for row in microsoft_inntekt_dollar:
+        inntekt += row[1]
+    print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt*1000))
+
 
 def print_kart(kart):  
     for rad in kart:      
-        print("".join(rad))
+       print("".join(rad))
 
-        ''' Printer et 10 * 10 kart per rad   
-    input:       kart, en list
-      return:      
-      None'''  
-          
 def oppdater_kart(spillerX, spillerY, monsterX, monsterY):    ''' Printer et 10 * 10 kart med spiller i posisjon (spillerX, spillerY)    og monster i posisjon (monsterX, monsterY)    
     input:
         spillerX og spillerY, heltall mellom 0 og 9
@@ -103,12 +125,18 @@ def flytt_spiller(bevegelse, spillerX, spillerY):    ''' Flytt spiller hvis lovl
     return:        spillerX, spillerY, heltall mellom 0 og 9    '''    
 pass
 
-def oppgave4():    ''' Spill mot monster'''   
-pass
+def oppgave4():
+    map = ["*"]*10
+
+
+   # print_kart(map)
+  #  playing = True
+  #  while playing:
 
 
 
-while True:
+oppgave4()
+"""while True:
     valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
     if valg == "1":
         oppgave1()
@@ -133,3 +161,5 @@ while True:
         oppgave4()
     else:
         print("Ugylidg, prøv igjen.")
+
+        """
