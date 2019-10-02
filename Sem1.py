@@ -76,23 +76,23 @@ def func3():
         "AUD": 6.06501,
         "NOK": 1.00000
     }
-    kursFra = input("Fra hvilke valuta vil du konvertere? EUR, USD, GBP, SEK, AUD \n")
-    kursFraAntall = float(input("Hvor mange " + kursFra.upper() + " vil du konvertere til NOK?\n"))
+    kursFra = input("Fra hvilke valuta vil du konvertere? EUR, USD, GBP, SEK, AUD \n").upper()
+    kursFraAntall = float(input("Hvor mange %s vil du konvertere til NOK?\n" % (kursFra)))
 
     konvertert = kursFraAntall * ValutaKurser[kursFra.upper()]
-    print(kursFraAntall, kursFra, " er %.2f i NOK." % konvertert)
+    print("%.1f %s er %.2f i NOK." % (kursFraAntall, kursFra, konvertert))
 
     konvFraNorsk = float(input("\nNorske kroner som skal konverteres: "))
-    konvFraNorskTil = input("Til hvilke kurs?  EUR, USD, GBP, SEK, AUD\n")
-    print(konvFraNorsk, "Norske er %.2f" % (konvFraNorsk / ValutaKurser[konvFraNorskTil.upper()]), konvFraNorskTil.upper())
+    konvFraNorskTil = input("Til hvilke kurs?  EUR, USD, GBP, SEK, AUD\n").upper()
+    print("%.1f Norske er %.2f %s" % (konvFraNorsk, (konvFraNorsk / ValutaKurser[konvFraNorskTil]), konvFraNorskTil))
 
 
 # oppg 4
 def func4():
     print("\n-------------Oppgave 4-------------")
 
-    for i in range(0, 10):
-        print(i, " oppøyd i 3:", i**3)
+    for i in range(10):
+        print("%d oppøyd i 3: %d" % (i, i**3))
 
 
 # oppg 5
@@ -103,7 +103,7 @@ def func5():
     stopp = int(input("Stopp (til og med): "))
     n = int(input("n: "))
 
-    print("Tall mellom", start, "og", stopp, "som er delelig på", n, ": ")
+    print("Tall mellom %d og %d som er delelig på %d: " % (start, stopp, n))
     for i in range(start, stopp+1):
         if (i % n == 0):
             print(i)
@@ -116,9 +116,9 @@ def func6():
     print("\033[4m Celsius \t Fahrenheit \t\t Status \033[m")
     for i in range(11):
         if i < 6:
-            print(i*10, "\t\t", tilFahrenheit(i*10), "\t\t Jeg har det bra.")
+            print("%d \t\t %.1f \t\t Jeg har det bra." % ((i*10), tilFahrenheit(i*10)))
         else:
-            print(i*10, "\t\t", tilFahrenheit(i*10), "\t\t Jeg svetter ihjel!")
+            print("%d \t\t %.1f \t\t Jeg svetter ihjel!" % ((i*10), tilFahrenheit(i*10)))
 
 # tøysete metode som står i oppgaven skal være med :PpPp
 def tilFahrenheit(celcius):
@@ -142,7 +142,7 @@ def renteOkning(verdi, fra, til):
 
 # velg hvilke oppgave som skal vises i terminalen
 while True:
-    valg = input("\nHvilke oppgave? \t \033[4m 1-7 \033[0m \t \033[4m Alle \033[m \t \033[4m Avslutt: 0 \033[m \n")
+    valg = input("\nHvilke oppgave? \t \033[4m 1-7 \033[0m \t \033[4m Alle \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
     if valg == "1":
         func1()
     elif valg == "2":
@@ -159,7 +159,7 @@ while True:
         func7()
     elif valg == "0":
         break
-    elif valg.upper() == "ALLE":
+    elif valg == "ALLE":
         func1()
         func2()
         func3()
