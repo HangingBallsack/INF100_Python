@@ -1,8 +1,8 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import random
 
-def oppgave1():    """ Printer ut store tall i kort og lang form,        ofte kalt amerikansk og britisk form.    """    
-store_tall = [
+def oppgave1():
+    store_tall = [
         ["Million",    "10^6 ", "10^6 "],
         ["Milliard",   "     ", "10^9 "],
         ["Billion",    "10^9 ", "10^12"],
@@ -12,7 +12,38 @@ store_tall = [
         ["Quintillion","10^18", "10^30"],
         ["Sextillion", "10^21", "10^36"]
     ] 
-pass
+    print("navn\t\tkort\tlang")
+    for row in store_tall:
+        for column in row:
+            print(column, end=' \t')
+        print()
+
+
+def oppgave2():
+    ferdig = False
+    tall = []
+    print("Skriv inn så mange heltall du vil, og avslutt med 'ferdig ... eller noe som ikke er tall '.")
+
+    while not ferdig:
+        inn = input("Tall: ")
+
+        if inn.lower() == "ferdig" or not inn.isdigit():
+            ferdig = True
+        else:
+            tall.append(inn)
+
+    tall.sort()
+    length = len(tall)
+
+    if length % 2 == 0:
+        a = float(tall[len(tall) // 2])
+        b = float(tall[(len(tall) // 2) - 1])
+        median = (a+b)/2.0
+    else:
+        median = float(tall[len(tall)//2])
+
+    print("Medianen av verdiene er: %.2f" % median)
+
 
 # I billion USD (kort form)
 microsoft_inntekt_dollar = [
@@ -36,10 +67,8 @@ microsoft_inntekt_dollar = [
         [2019, 125.84]
     ]
 
-def oppgave2():    """ Henter en rekke tall fra brukeren og ut hva som         var medianen i listen    """    
-pass
-
-def oppgave3a():    """ Konverterer inntektene fra dollar til kroner    uten Ã¥ gjÃ ̧re endringer pÃ¥ originallisten.    """    
+def oppgave3a():
+    USD = 8.6862
 pass
 
 def oppgave3b():    """ Tegner et histogram over inntektene til Microsoft    """    
@@ -63,9 +92,10 @@ def oppdater_kart(spillerX, spillerY, monsterX, monsterY):    ''' Printer et 10 
     return: 
            None
      '''    
-    kart = []    
+   # kart = []    
     # Lag kart her ->    
-    print_kart(kart)
+   # print_kart(kart)
+pass
      
 def flytt_spiller(bevegelse, spillerX, spillerY):    ''' Flytt spiller hvis lovlig trekk    
     input:        bevegelse: w,a,s,d
@@ -76,17 +106,30 @@ pass
 def oppgave4():    ''' Spill mot monster'''   
 pass
 
-def main():    
-    # oppgave1()    
-    # # print()    
-    # # oppgave2a()    
-    # # print()    
-    # # print()    
-    # # oppgave3a()    
-    # # print()    
-    # # oppgave3b()    
-    # # print()    
-    # # oppgave3c()    
-    # # print()
-    # # oppgave4c()    
-    # # print()
+
+
+while True:
+    valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
+    if valg == "1":
+        oppgave1()
+    elif valg == "2":
+        oppgave2()
+    elif valg == "3A":
+        oppgave3a()
+    elif valg == "3B":
+        oppgave3b()
+    elif valg == "3C":
+        oppgave3c()
+    elif valg == "4":
+        oppgave4()
+    elif valg == "0":
+        break
+    elif valg == "ALLE":
+        oppgave1()
+        oppgave2()
+        oppgave3a()
+        oppgave3b()
+        oppgave3c()
+        oppgave4()
+    else:
+        print("Ugylidg, prøv igjen.")
