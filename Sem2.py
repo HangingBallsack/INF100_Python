@@ -13,6 +13,7 @@ def oppgave1():
     ] 
     print("navn \t\t lang \t kort")
     for i in range(len(store_tall)):
+        #print kolonne 2(1) og 3(2) i feil rekkefølge :) 
         print("%-s \t %-s \t %-s" % (store_tall[i][0], store_tall[i][2], store_tall[i][1]))
 
 
@@ -38,7 +39,7 @@ def oppgave2():
     else:
         median = float(tall[len(tall)//2])
 
-    print("Medianen av verdiene er: %.2f" % median)
+    print("Medianen av verdiene er: %.3f" % median)
 
 
 # I billion USD (kort form)
@@ -93,7 +94,7 @@ def oppgave3b():
     plt.xlabel("Year")
     plt.show()
 
-
+#... oppgaven skriver ut inntekter i _Billioner_ dollar, som det står i oppgaven (og listen)... følte det ikke var helt riktig men ja... 
 def oppgave3c():
     inntekt = 0
     for row in microsoft_inntekt_dollar:
@@ -117,11 +118,10 @@ def oppdater_kart(spillerX, spillerY, monsterX, monsterY):
     
     map[spillerX][spillerY] = playerSymb
     map[monsterX][monsterY] = aiSymb
-    
+
     if spillerX == monsterX and spillerY == monsterY:
         print("You dead")
         exit()
-
     print_kart(map)
 
 def flytt_spiller(bevegelse, spillerX, spillerY):
@@ -141,10 +141,10 @@ def flytt_spiller(bevegelse, spillerX, spillerY):
         spillerY += 1
         return [spillerX, spillerY]
     else:
-        print("Invalid move")
         return[spillerX, spillerY]
 
-def flytt_ai(aiX, aiY):
+#Kopi av ^ metoden/funksjonen hvor bevegelse = random
+def flytt_ai(aiX, aiY): 
     randMove = random.randint(0, 6)    
     if randMove == 0 and aiX > 0:
         aiX -= 1
