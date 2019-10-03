@@ -101,20 +101,22 @@ def oppgave3c():
     print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt))
 
 
-def print_kart(kart):  
+def print_kart(kart):
+    print("\n\n\n\n\n\n\n\n\n\n\n\n___________________________")
     for rad in kart:      
-       print("  ".join(rad))
+       print("| ".join(rad))
+    print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
 
 def oppdater_kart(spillerX, spillerY, monsterX, monsterY):
     map = []
-    player = "x"
-    ai = "O"
+    playerSymb = "X" #😀Emojier funker egt ikke (sikkert unicode problem, fordi det kommer som "�😀" og orker inte feilsøke)
+    aiSymb = "O"
     
     for i in range(10):
         map.append([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
     
-    map[spillerX][spillerY] = player
-    map[monsterX][monsterY] = ai
+    map[spillerX][spillerY] = playerSymb
+    map[monsterX][monsterY] = aiSymb
     
     if spillerX == monsterX and spillerY == monsterY:
         print("You dead")
@@ -141,48 +143,66 @@ def flytt_spiller(bevegelse, spillerX, spillerY):
     else:
         print("Invalid move")
         return[spillerX, spillerY]
-    
+
+def flytt_ai(aiX, aiY):
+    randMove = random.randint(0, 6)    
+    if randMove == 0 and aiX > 0:
+        aiX -= 1
+        return [aiX, aiY]
+    elif randMove == 1 and aiX < 9:
+        aiX += 1
+        return [aiX, aiY]
+    elif randMove == 2 and aiY > 0:
+        aiY -= 1
+        return [aiX, aiY]
+    elif randMove == 3 and aiY < 9:
+        aiY += 1
+        return [aiX, aiY]
+    else:
+        return [aiX, aiY]
+
 
 def oppgave4():
     player = [1, 2]
-    Ai = [8, 8]
+    Ai = [6, 7]
     playing = True
     oppdater_kart(player[0], player[1], Ai[0], Ai[1])
 
     while playing:
-        bevegelse = input("Beveg deg i hvilke retning? \tWASD\t'quit'\t").upper()
-
+        bevegelse = input("\nBeveg deg i hvilke retning? \tWASD\t'quit'\t").upper()
         if bevegelse == "QUIT":
             print("QUITTING")
             playing = False
             break
-        
         player = flytt_spiller(bevegelse, player[0], player[1])
+        Ai = flytt_ai(Ai[0], Ai[1])
         oppdater_kart(player[0], player[1], Ai[0], Ai[1])
 
-    
-while True:
-    valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
-    if valg == "1":
-        oppgave1()
-    elif valg == "2":
-        oppgave2()
-    elif valg == "3A":
-        oppgave3a()
-    elif valg == "3B":
-        oppgave3b()
-    elif valg == "3C":
-        oppgave3c()
-    elif valg == "4":
-        oppgave4()
-    elif valg == "0":
-        break
-    elif valg == "ALLE":
-        oppgave1()
-        oppgave2()
-        oppgave3a()
-        oppgave3b()
-        oppgave3c()
-        oppgave4()
-    else:
-        print("Ugylidg, prøv igjen.")
+def main():    
+    while True:
+        valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
+        if valg == "1":
+            oppgave1()
+        elif valg == "2":
+            oppgave2()
+        elif valg == "3A":
+            oppgave3a()
+        elif valg == "3B":
+            oppgave3b()
+        elif valg == "3C":
+            oppgave3c()
+        elif valg == "4":
+            oppgave4()
+        elif valg == "0":
+            break
+        elif valg == "ALLE":
+            oppgave1()
+            oppgave2()
+            oppgave3a()
+            oppgave3b()
+            oppgave3c()
+            oppgave4()
+        else:
+            print("Ugylidg, prøv igjen.")
+
+main()
