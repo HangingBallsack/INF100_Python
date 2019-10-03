@@ -25,7 +25,6 @@ def oppgave2():
 
     while not ferdig:
         inn = input("Tall: ")
-
         if inn.lower() == "ferdig" or not inn.isdigit():
             ferdig = True
         else:
@@ -101,42 +100,69 @@ def oppgave3c():
     inntekt = 0
     for row in microsoft_inntekt_dollar:
         inntekt += row[1]
-    print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt*1000))
+    print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt))
 
 
 def print_kart(kart):  
     for rad in kart:      
-       print("".join(rad))
+       print("  ".join(rad))
 
-def oppdater_kart(spillerX, spillerY, monsterX, monsterY):    ''' Printer et 10 * 10 kart med spiller i posisjon (spillerX, spillerY)    og monster i posisjon (monsterX, monsterY)    
-    input:
-        spillerX og spillerY, heltall mellom 0 og 9
-    return: 
-           None
-     '''    
-   # kart = []    
-    # Lag kart her ->    
-   # print_kart(kart)
-pass
-     
-def flytt_spiller(bevegelse, spillerX, spillerY):    ''' Flytt spiller hvis lovlig trekk    
-    input:        bevegelse: w,a,s,d
-                    spillerX og spillerY, heltall mellom 0 og 9
-    return:        spillerX, spillerY, heltall mellom 0 og 9    '''    
-pass
+def oppdater_kart(spillerX, spillerY, monsterX, monsterY):
+    map = []
+    player = "x"
+    ai = "O"
+    
+    for i in range(10):
+        map.append([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
+    
+    map[spillerX][spillerY] = player
+    map[monsterX][monsterY] = ai
+    
+    if spillerX == monsterX and spillerY == monsterY:
+        print("You dead")
+        exit()
+
+    print_kart(map)
+
+def flytt_spiller(bevegelse, spillerX, spillerY):
+    if bevegelse == "W" and spillerX > 0:
+        spillerX -= 1
+        return [spillerX, spillerY]
+
+    elif bevegelse == "S" and spillerX < 9:
+        spillerX += 1
+        return [spillerX, spillerY]
+
+    elif bevegelse == "A" and spillerY > 0:
+        spillerY -= 1
+        return [spillerX, spillerY]
+
+    elif bevegelse == "D" and spillerY < 9:
+        spillerY += 1
+        return [spillerX, spillerY]
+    else:
+        print("Invalid move")
+        return[spillerX, spillerY]
+    
 
 def oppgave4():
-    map = ["*"]*10
+    player = [1, 2]
+    Ai = [8, 8]
+    playing = True
+    oppdater_kart(player[0], player[1], Ai[0], Ai[1])
 
+    while playing:
+        bevegelse = input("Beveg deg i hvilke retning? \tWASD\t'quit'\t").upper()
 
-   # print_kart(map)
-  #  playing = True
-  #  while playing:
-
-
-
-oppgave4()
-"""while True:
+        if bevegelse == "QUIT":
+            print("QUITTING")
+            playing = False
+            break
+        
+        player = flytt_spiller(bevegelse, player[0], player[1])
+        oppdater_kart(player[0], player[1], Ai[0], Ai[1])
+        
+while True:
     valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
     if valg == "1":
         oppgave1()
@@ -161,5 +187,3 @@ oppgave4()
         oppgave4()
     else:
         print("Ugylidg, prøv igjen.")
-
-        """
