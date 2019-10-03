@@ -11,11 +11,9 @@ def oppgave1():
         ["Quintillion","10^18", "10^30"],
         ["Sextillion", "10^21", "10^36"]
     ] 
-    print("navn\t\tkort\tlang")
-    for row in store_tall:
-        for column in row:
-            print(column, end=' \t')
-        print()
+    print("navn \t\t lang \t kort")
+    for i in range(len(store_tall)):
+        print("%-s \t %-s \t %-s" % (store_tall[i][0], store_tall[i][2], store_tall[i][1]))
 
 
 def oppgave2():
@@ -161,7 +159,8 @@ def oppgave4():
         
         player = flytt_spiller(bevegelse, player[0], player[1])
         oppdater_kart(player[0], player[1], Ai[0], Ai[1])
-        
+
+    
 while True:
     valg = input("\n\033[4mHvilke oppgave?\033[0m \t 1, 2, 3a, 3b, 3c, 4 eller Alle? \033[m \t \033[4m Avslutt: 0 \033[m \n").upper()
     if valg == "1":
