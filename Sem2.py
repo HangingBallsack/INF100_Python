@@ -93,13 +93,12 @@ def oppgave3b():
     plt.ylabel("Earnings in Billion USD")
     plt.xlabel("Year")
     plt.show()
-
-#... oppgaven skriver ut inntekter i _Billioner_ dollar, som det står i oppgaven (og listen)... følte det ikke var helt riktig men ja... 
+ 
 def oppgave3c():
     inntekt = 0
     for row in microsoft_inntekt_dollar:
         inntekt += row[1]
-    print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt))
+    print("Mirosoft tjente %.2f billioner dollar i perioden 2002-2019" % (inntekt/1000))
 
 
 def print_kart(kart):
