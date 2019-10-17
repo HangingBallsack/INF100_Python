@@ -196,11 +196,17 @@ def main():
             break
         elif valg == "ALLE":
             oppgave1()
+            print()
             oppgave2()
+            print()
             oppgave3a()
+            print()
             oppgave3b()
+            print()
             oppgave3c()
+            print()
             oppgave4()
+            print("\nDone")
         else:
             print("Ugylidg, prøv igjen.")
 
