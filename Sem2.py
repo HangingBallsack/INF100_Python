@@ -93,8 +93,7 @@ def oppgave3b():
     plt.ylabel("Earnings in Billion USD")
     plt.xlabel("Year")
     plt.show()
-
-#... oppgaven skriver ut inntekter i 1000 milliarder i billioner... sååååå dele på 1000 da 
+ 
 def oppgave3c():
     inntekt = 0
     for row in microsoft_inntekt_dollar:
@@ -197,11 +196,17 @@ def main():
             break
         elif valg == "ALLE":
             oppgave1()
+            print()
             oppgave2()
+            print()
             oppgave3a()
+            print()
             oppgave3b()
+            print()
             oppgave3c()
+            print()
             oppgave4()
+            print("\nDone")
         else:
             print("Ugylidg, prøv igjen.")
 
