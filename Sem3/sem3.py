@@ -26,16 +26,16 @@ NAMING = { # Naming from map to full name, add here if you want more
 
 # 2 
 PICTURES = {
-            'M': 'gameimages/mario.png',
-            'P': "gameImages/peach.png",
-            'B': "gameImages/bowser.png",
-            'G': "gameImages/goomba.png",
-            'K': "gameImages/koopa.png",
-            'C': "gameImages/cap.png",
-            'L': "gameImages/mushroom.png",
-            'V': "gameImages/wall.png",
-            'Y': "gameImages/wall.png",
-            'T': "gameImages/gate.png"
+            'M' : "gameImages/mario.png",
+            'P' : "gameImages/peach.png",
+            'B' : "gameImages/bowser.png",
+            'G' : "gameImages/goomba.png",
+            'K' : "gameImages/koopa.png",
+            'C' : "gameImages/cap.png",
+            'L' : "gameImages/mushroom.png",
+            'V' : "gameImages/wall.png",
+            'Y' : "gameImages/wall.png",
+            'T' : "gameImages/gate.png"
         }
 
 # 1
@@ -52,7 +52,16 @@ def go(key):
         Input: key from keyboard as string
         Output: x,y relative direction coordinates
     '''
-    pass
+    inn = input().upper()
+    if inn == "W":
+        return (0, -STEP_SIZE)
+    elif inn == "A":
+        return (-STEP_SIZE, 0)
+    elif inn == "S":
+        return (0, STEP_SIZE)
+    elif inn == "D":
+        return (STEP_SIZE, 0)
+        
 # 4
 def readFile(filename):
     ''' Read map file to dictionary
