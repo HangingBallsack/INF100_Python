@@ -1,17 +1,8 @@
-"""
-This is a simple Mario game.
-
-Author: Hakon Tjeldnes
-Last edited: October 2019
-"""
-
 import sys
 import random
 import time
 from PIL import Image, ImageTk
 from tkinter import Tk, Frame, Canvas, ALL, NW
-
-# Definse size of board and other constants
 
 BOARD_WIDTH = 1000 # In points px
 BOARD_HEIGHT = 1000 # In points px
@@ -33,8 +24,18 @@ NAMING = { # Naming from map to full name, add here if you want more
 
 ################### START HERE   -> #########################################
 
-# 2
-PICTURES = { # Naming from map to image path, add here if you want more
+# 2 
+PICTURES = {
+            'M': 'gameimages/mario.png',
+            'P': "gameImages/peach.png",
+            'B': "gameImages/bowser.png",
+            'G': "gameImages/goomba.png",
+            'K': "gameImages/koopa.png",
+            'C': "gameImages/cap.png",
+            'L': "gameImages/mushroom.png",
+            'V': "gameImages/wall.png",
+            'Y': "gameImages/wall.png",
+            'T': "gameImages/gate.png"
         }
 
 # 1
