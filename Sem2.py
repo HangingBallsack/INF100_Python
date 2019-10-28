@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt, random, copy
+import matplotlib.pyplot as plt, random, copy, os
 
 def oppgave1():
     store_tall = [
@@ -102,7 +102,8 @@ def oppgave3c():
 
 
 def print_kart(kart):
-    print("\n\n\n\n\n\n\n\n\n\n\n\n___________________________")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("___________________________")
     for rad in kart:      
        print("| ".join(rad))
     print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")

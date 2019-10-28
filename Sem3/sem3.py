@@ -52,32 +52,32 @@ def go(key):
         Input: key from keyboard as string
         Output: x,y relative direction coordinates
     '''
-    inn = input().upper()
-    if inn == "W":
+
+    if key == "W" or key =="w":
         return (0, -STEP_SIZE)
-    elif inn == "A":
+    elif key == "A" or key =="a":
         return (-STEP_SIZE, 0)
-    elif inn == "S":
+    elif key == "S" or key =="s":
         return (0, STEP_SIZE)
-    elif inn == "D":
+    elif key == "D" or key =="d":
         return (STEP_SIZE, 0)
         
 # 4
 def readFile(filename):
-    ''' Read map file to dictionary
+    objDict = {}
+    level = open(filename, "r+")
     
-    Input: path to txt file
-    Output: Dictionary with tuple keys of (x,y) and content from map
-    '''
-    pass 
+    for i in range(sum(1 for line in open(filename))):
+        for j, val in enumerate(list(level.readline())):
+            if val == " ":
+                continue
+            elif not val == '\n':
+                objDict[i,j]=val          
+    return objDict 
+
 # 5
 def nextStep(x1, y1, x2, y2, moveX, moveY):
-    ''' Get next step, to be able to check if wall 
-    
-    Input: x1 y1 x2 y2 moveX moveY 
-    Output: 4 numbers, next step for x1 y1 x2 y2
-    '''
-    pass
+    return (x1 + moveX, y1 + moveY, x2 + moveX, y2 + moveY)
 
 def main():
 
