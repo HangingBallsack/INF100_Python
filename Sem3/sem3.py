@@ -40,7 +40,7 @@ PICTURES = {
 
 # 1
 def gameOverText(score):
-    print("Game Over with score %d" % score)
+    return ("Game Over with score %d" % score)
 
 # 3
 def go(key):
